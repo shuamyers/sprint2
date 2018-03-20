@@ -117,3 +117,15 @@ function drawImage(imageObj) {
     var data = imageData.data;
 
   }
+
+
+  function searchMemes(elSearch){
+        var input =elSearch.value.toLowerCase();
+        var filteredImgs = gImgs.filter(function(img){
+            return img.keywords.some(function(word){
+                    return (word.indexOf(input) > -1);
+             });              
+        })
+        console.log(filteredImgs);
+        // renderImgs(filteredImgs);
+  }
