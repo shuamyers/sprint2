@@ -20,8 +20,29 @@ function init(){
     renderImgs(gImgs); 
     gKeyWords= getKeyWordsSum(gImgs);
     console.log(gKeyWords);
-    // renderKeyWords(gKeyWords);
+    renderKeyWords(gKeyWords);
 }
+
+
+function renderKeyWords(keywords) {
+    var strHtmls=`
+    <h2>Keywords:</h2>
+    <ul class="keywords-bar flex flex-wrap clean-list">
+    `;
+    
+    for (var key in keywords) {
+        var fontSize = keywords[key] * 6;
+        var strHtml = `
+        <li style="font-size:${fontSize}px;">${key}</li>
+               `
+       strHtmls += strHtml;
+        }
+        strHtmls += `</ul>`;
+        var elkeyWordsBar = document.querySelector('.keywords-wrapper');
+        console.dir(elkeyWordsBar);
+        console.log(strHtmls);
+        elkeyWordsBar.innerHTML = strHtmls;
+    }
 
 function getKeyWordsSum(imgs) {
     var KeywordSums = imgs.reduce(function (acc, img) {
@@ -39,23 +60,29 @@ function renderImgs(imgs) {
 
     var strHtmls = imgs.map(function (img, idx) {
         var strHtml = `
-         <img class="img-"${img.id}"" src=""${img.url}"" alt="" onclick="handleImg(this)">
+         <img class="img-${img.id}" src="${img.url}" alt="" onclick="handleImg(this)">
                 `
         return strHtml
     });
 
     var elImgs = document.querySelector('.images-wrapper');
-    elImgs.innerHtml = strHtmls.join('');
+    elImgs.innerHTML = strHtmls.join('');
 
 }
 
 function getImgs(){
     var imgs = [];
 
+    imgs.push(getImg('001',['funny','happy']));
+    imgs.push(getImg('002',['funny','happy']));
+    imgs.push(getImg('003',['funny']));
+    imgs.push(getImg('002',['funny','funny']));
+    imgs.push(getImg('003',['Trump','important']));
+    imgs.push(getImg('002',['Trump','important']));
+    imgs.push(getImg('003',['Trump','important']));
+    imgs.push(getImg('002',['Trump','Trump']));
+    imgs.push(getImg('003',['Trump','Trump']));
 
-    imgs.push(getImg('001',['Funny','happy']));
-    imgs.push(getImg('002',['funny','cool']));
-    imgs.push(getImg('003',['funny','lol']));
     
     return imgs;
 }
