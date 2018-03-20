@@ -53,7 +53,7 @@ function getImgs(){
     var imgs = [];
 
 
-    imgs.push(getImg('001',['funny','happy']));
+    imgs.push(getImg('001',['Funny','happy']));
     imgs.push(getImg('002',['funny','cool']));
     imgs.push(getImg('003',['funny','lol']));
     
@@ -94,10 +94,10 @@ function drawImage(imageObj) {
 
 
   function searchMemes(elSearch){
-        var input =elSearch.value.toLowerCase();
+        var input = elSearch.value.toLowerCase(); 
         var filteredImgs = gImgs.filter(function(img){
             return img.keywords.some(function(word){
-                    return (word.indexOf(input) > -1);
+                    return (word.toLowerCase().indexOf(input) > -1);
              });              
         })
         console.log(filteredImgs);
