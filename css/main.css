@@ -1,3 +1,45 @@
 body{
     background: rebeccapurple;
 }
+
+
+
+/*----Helpers----*/
+
+.clean-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* flex */
+.flex {
+    display: flex;
+}
+.inline-flex {
+    display: inline-flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+.space-between {
+    justify-content: space-between;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-full {
+    flex: 1;
+}
