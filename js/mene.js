@@ -22,9 +22,9 @@ function getImgs(){
     var imgs = [];
 
 
-    imgs.push(getImg(001,['funny','happy']));
-    imgs.push(getImg(002,['funny','happy']));
-    imgs.push(getImg(003,['funny','happy']));
+    imgs.push(getImg('001',['funny','happy']));
+    imgs.push(getImg('002',['funny','happy']));
+    imgs.push(getImg('003',['funny','happy']));
     
     return imgs;
 }
@@ -34,4 +34,4 @@ function getImg(imgId,keywords){
         id:gId++,
         url:'../img/'+imgId+'.jpg',
         keywords:keywords
-    }}
+}}
