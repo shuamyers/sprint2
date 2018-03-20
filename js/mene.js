@@ -3,6 +3,7 @@ console.log('sprint 2');
 
 var gId=1;
 var gImgs;
+var gKeyWords;
 var gCtx;
 
 // var gMeme = {
@@ -17,7 +18,22 @@ var gCtx;
 function init(){
     gImgs =getImgs();
     renderImgs(gImgs); 
+    gKeyWords= getKeyWordsSum(gImgs);
+    console.log(gKeyWords);
+    // renderKeyWords(gKeyWords);
 }
+
+function getKeyWordsSum(imgs) {
+    var KeywordSums = imgs.reduce(function (acc, img) {
+        img.keywords.forEach(function(keyword) {
+            if (acc[keyword] >= 1) acc[keyword] += 1;
+            else acc[keyword] = 1;
+        });
+        return acc;
+    }, {});
+    return KeywordSums;
+}
+
 
 function renderImgs(imgs) {
 
