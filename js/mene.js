@@ -128,5 +128,5 @@ function drawImage(imageObj) {
              });              
         })
         console.log(filteredImgs);
-        // renderImgs(filteredImgs);
+        renderImgs(filteredImgs);
   }
