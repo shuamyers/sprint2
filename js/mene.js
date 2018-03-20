@@ -3,6 +3,7 @@ console.log('sprint 2');
 
 var gId=1;
 var gImgs;
+var gCtx;
 
 // var gMeme = {
 //     selectedImgId: 5,
@@ -27,7 +28,7 @@ function renderImgs(imgs) {
         return strHtml
     });
 
-    var elImgs = document.querySelector('.images-wrapper')
+    var elImgs = document.querySelector('.images-wrapper');
     elImgs.innerHtml = strHtmls.join('');
 
 }
@@ -48,4 +49,29 @@ function getImg(imgId,keywords){
         id:gId++,
         url:'../img/'+imgId+'.jpg',
         keywords:keywords
-}}
+         }
+}
+
+function handleImg(elImg) {
+
+    var url = elImg.src;
+    console.log(url);
+    var elCanvas = document.querySelector('#imgCanvas');
+    gCtx = elCanvas.getContext('2d');
+    var imageObj = new Image();
+      imageObj.onload = function () {
+        drawImage(this);
+      };
+      imageObj.src = url;
+}
+
+function drawImage(imageObj) {
+    var x = 0;//69;
+    var y = 0;//50;
+
+    gCtx.drawImage(imageObj, x, y);
+
+    var imageData = gCtx.getImageData(x, y, imageObj.width, imageObj.height);
+    var data = imageData.data;
+
+  }
