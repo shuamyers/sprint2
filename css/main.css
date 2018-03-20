@@ -20,6 +20,11 @@ header{
     background: lightsalmon;
 }
 
+/*----keywords sort----*/
+
+.keywords-wrapper {
+ background: firebrick;
+}
 
 /*----grid----*/
 
@@ -113,3 +118,4 @@ nav a {
 .flex-full {
     flex: 1;
 }
+
