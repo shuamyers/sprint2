@@ -15,7 +15,21 @@ var gImgs;
 
 function init(){
     gImgs =getImgs();
-    // renderImgs(gImgs); 
+    renderImgs(gImgs); 
+}
+
+function renderImgs(imgs) {
+
+    var strHtmls = imgs.map(function (img, idx) {
+        var strHtml = `
+         <img class="img-"${img.id}"" src=""${img.url}"" alt="" onclick="handleImg(this)">
+                `
+        return strHtml
+    });
+
+    var elImgs = document.querySelector('.images-wrapper')
+    elImgs.innerHtml = strHtmls.join('');
+
 }
 
 function getImgs(){
