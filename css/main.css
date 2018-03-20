@@ -1,7 +1,41 @@
+*{
+    box-sizing: border-box;
+}
 body{
-    background: rebeccapurple;
+    margin: 0;
 }
 
+
+header{
+    background: #000;
+    color: #fff;
+    height: 70px;
+}
+
+.header-warper{
+    line-height: 70px;
+}
+
+
+.nav-bar  a{
+    width: 30px;
+    margin: 10px;
+    border:1px solid #fff;
+    height: 100%;
+    background:gold;
+    padding: 10px;
+}
+nav a {
+    text-decoration: none;
+}
+
+
+/* layout */
+
+.container{
+    width:90%;
+    margin: 0 auto;
+}
 
 
 /*----Helpers----*/
