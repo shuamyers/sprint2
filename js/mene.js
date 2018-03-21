@@ -203,5 +203,5 @@ function renderControls(){
         return strHtml;
     });
     var elControls=document.querySelector('.controls');
-    elControls.innerHTML=strHtmls.join();
+    elControls.innerHTML=strHtmls.join(',');
 }
