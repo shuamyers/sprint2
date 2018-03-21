@@ -12,18 +12,18 @@ var gMeme = {
     txts: [
            {
                 txt:"",
-                x: 30,
-                y: 50,
-                size: 20,
+                x: 0,
+                y: 70,
+                size: 60,
                 align: "left",
                 color: "red"
               },
 
              {
-                txt:"bottom",
-                x: 30,
-                y: 250,
-                size: 20,
+                txt:"",
+                x: 0,
+                y: 0,
+                size: 60,
                 align: "left",
                 color: "red"
              }
@@ -123,6 +123,7 @@ function handleImg(id) {
     gCtx.canvas.height = imageObj.height;
     imageObj.onload = function () {
         drawImage(this, gElCanvas);
+        if(!gMeme.txts[1].y) updateBottomTxt();
         gMeme.txts.forEach(function (line) {
             drawText(line);
         });
@@ -135,7 +136,7 @@ function handleImg(id) {
 function drawText(line) {
     var x = line.x;
     var y = line.y;
-    gCtx.font = "40px 'Segoe UI'";
+    gCtx.font = `${line.size}px 'Segoe UI`;
     gCtx.fillText(line.txt, x, y);
 }
 
@@ -195,8 +196,8 @@ function renderControls(){
                         <li><button><i class="fa fa-align-left"></i></button></li>
                         <li><button><i class="fa fa-align-justify"></i></button></li>
                         <li><button><i class="fa fa-align-right"></i></button></li>
-                        <li><button><i class="fa fa-plus"></i></button></li>
-                        <li><button><i class="fa fa-minus"></i></button></li>
+                        <li><button onclick="moveTxt(-4,${idx})"><i class="fa fa-plus"></i></button></li>
+                        <li><button onclick="moveTxt(4,${idx})"><i class="fa fa-minus"></i></button></li>
                     </ul>
                 </div>
         `
@@ -204,4 +205,13 @@ function renderControls(){
     });
     var elControls=document.querySelector('.controls');
     elControls.innerHTML=strHtmls.join("");
+}
+
+function moveTxt (move , idx) {
+    gMeme.txts[idx].y += move;
+    handleImg(gMeme.selectedImgId);
+}
+
+function updateBottomTxt () {
+    gMeme.txts[1].y = (gCtx.canvas.height) - 50;
 }
