@@ -191,7 +191,7 @@ function renderControls() {
   var strHtmls = gMeme.txts.map(function(line, idx) {
     var strHtml = `
         <div class="line-btn line-${idx}">
-         <input type="text" class="top-line" onkeyup="getText(this,${idx})" placeholder="${gMeme.txts[idx].txt}">
+         <input type="text" class="top-line" onkeyup="getText(this,${idx})" value="${gMeme.txts[idx].txt}">
                     <ul class="flex clean-list">
                             <li><button onclick="deleteLine(${idx})"><i class="fa fa-trash-alt"></i></button></li>
                         <li><input type="color" onchange="changeColor(this,${idx})"></input></li>
