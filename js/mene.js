@@ -94,7 +94,7 @@ function getImgs() {
 function getImg(imgId, keywords) {
   return {
     id: gId++,
-    url: "../img/" + imgId + ".jpg",
+    url: "img/" + imgId + ".jpg",
     keywords: keywords
   };
 }
