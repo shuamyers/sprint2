@@ -170,9 +170,6 @@ function handleImg(elImg,id) {
 
   function drawText(txt) {
     var input = txt.value; 
-    var canvas = document.getElementById('myCanvas');
-    var context = canvas.getContext('2d');
-    context.clearRect( 0, 0, canvas.width, canvas.height);
     gCtx.font = "40px 'Segoe UI'";
-    gCtx.fillText('kaki', 20, 350);
+    gCtx.fillText(input, 20, 350);
 }
