@@ -6,14 +6,16 @@ var gImgs;
 var gKeyWords;
 var gCtx;
 
-// var gMeme = {
-//     selectedImgId: 5,
-//     txts:[{
-//         line: 'I never eat Falafel',
-//         size: 20,
-//         align: 'left',
-//         color: 'red'
-//     }]} 
+var gMeme = {
+        selectedImgId: 0,
+            txts:[{
+            lineTop: 'I never eat Falafel',
+            lineBottom: 'I never eat Falafel',
+            size: 20,
+            align: 'left',
+            color: 'red'
+        }]
+} 
 
 function init(){
     gImgs =getImgs();
@@ -154,3 +156,23 @@ function handleImg(elImg) {
         })
         renderImgs(filteredImgs);
   }
+
+
+//   function drawLine(txt) {
+//      var input = txt.value; 
+//      var x = 0;
+//      var y = 0;
+//      var canvas = gCtx.canvas ;
+
+//      gCtx.drawImage(img, x,y, width , height );  
+
+//   }
+
+  function drawText(txt) {
+    var input = txt.value; 
+    var canvas = document.getElementById('myCanvas');
+    var context = canvas.getContext('2d');
+    context.clearRect( 0, 0, canvas.width, canvas.height);
+    gCtx.font = "40px 'Segoe UI'";
+    gCtx.fillText('kaki', 20, 350);
+}
