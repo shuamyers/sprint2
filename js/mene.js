@@ -7,7 +7,7 @@ var gKeyWords;
 var gCtx;
 
 var gMeme = {
-        selectedImgId: 0,
+        selectedImgId: null,
             txts:[{
             lineTop: 'I never eat Falafel',
             lineBottom: 'I never eat Falafel',
@@ -62,7 +62,7 @@ function renderImgs(imgs) {
 
     var strHtmls = imgs.map(function (img, idx) {
         var strHtml = `
-         <img class="img-${img.id}" src="${img.url}" alt="" onclick="handleImg(this)">
+         <img class="img-${img.id}" src="${img.url}" alt="" onclick="handleImg(this,${img.id})">
                 `
         return strHtml
     });
@@ -97,8 +97,8 @@ function getImg(imgId,keywords){
          }
 }
 
-function handleImg(elImg) {
-
+function handleImg(elImg,id) {
+    gMeme.selectedImgId = id;
     var url = elImg.src;
     console.log(url);
     var elCanvas = document.querySelector('#imgCanvas');
