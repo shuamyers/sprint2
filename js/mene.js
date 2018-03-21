@@ -10,8 +10,7 @@ var gCtx;
 var gMeme = {
     selectedImgId: null,
     txts: [
-    
-              {
+           {
                 txt:"",
                 x: 30,
                 y: 50,
@@ -37,6 +36,7 @@ function init() {
     gKeyWords = getKeyWordsSum(gImgs);
     console.log(gKeyWords);
     renderKeyWords(gKeyWords);
+    renderControls()
 }
 
 function renderKeyWords(keywords) {
@@ -180,5 +180,28 @@ function getKeyWordsSum(imgs) {
 }
 
 function getCordX () {
+}
 
+
+function renderControls(){
+    var strHtmls = gMeme.txts.map(function (line, idx) {
+        var strHtml = `
+        <div class="line-btn line-${idx}">
+         <input type="text" class="top-line" onkeyup="getText(this,${idx})">
+                    <ul class="flex clean-list">
+                            <li><button><i class="fa fa-trash-alt"></i></button></li>
+                        <li><input type="color"></input></li>
+                        <li><button><i class="fa fa-font"></i></button></li>
+                        <li><button><i class="fa fa-align-left"></i></button></li>
+                        <li><button><i class="fa fa-align-justify"></i></button></li>
+                        <li><button><i class="fa fa-align-right"></i></button></li>
+                        <li><button><i class="fa fa-plus"></i></button></li>
+                        <li><button><i class="fa fa-minus"></i></button></li>
+                    </ul>
+                </div>
+        `
+        return strHtml;
+    });
+    var elControls=document.querySelector('.controls');
+    elControls.innerHTML=strHtmls.join();
 }
