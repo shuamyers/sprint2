@@ -12,20 +12,18 @@ var gMeme = {
     txts: [
            {
                 txt:"",
-                x: 30,
-                y: 50,
+                y: 20,
                 size: 20,
                 align: "left",
-                color: "red"
+                color: "#fff"
               },
 
              {
                 txt:"bottom",
-                x: 30,
-                y: 250,
+                y: 300,
                 size: 20,
-                align: "left",
-                color: "red"
+                align: "center",
+                color: "#fff"
              }
     ]
 };
@@ -112,7 +110,6 @@ function handleImg(id) {
     var img = gImgs.find(function (img) {
         return img.id === id;
     });
-    console.log(img);
     var url = img.url;
     gElCanvas = document.querySelector("#imgCanvas");
     gCtx = gElCanvas.getContext("2d");
@@ -133,8 +130,10 @@ function handleImg(id) {
 
 
 function drawText(line) {
-    var x = line.x;
+    var x = gCtx.canvas.width / 2;
     var y = line.y;
+    gCtx.textAlign=line.align;
+    gCtx.fillStyle = line.color;
     gCtx.font = "40px 'Segoe UI'";
     gCtx.fillText(line.txt, x, y);
 }
@@ -179,8 +178,7 @@ function getKeyWordsSum(imgs) {
     return KeywordSums;
 }
 
-function getCordX () {
-}
+
 
 
 function renderControls(){
@@ -190,11 +188,11 @@ function renderControls(){
          <input type="text" class="top-line" onkeyup="getText(this,${idx})">
                     <ul class="flex clean-list">
                             <li><button><i class="fa fa-trash-alt"></i></button></li>
-                        <li><input type="color"></input></li>
+                        <li><input type="color" onchange="changeColor(this,${idx})"></input></li>
                         <li><button><i class="fa fa-font"></i></button></li>
-                        <li><button><i class="fa fa-align-left"></i></button></li>
-                        <li><button><i class="fa fa-align-justify"></i></button></li>
-                        <li><button><i class="fa fa-align-right"></i></button></li>
+                        <li><button onclick = "alignText('left',${idx})"><i class="fa fa-align-left"></i></button></li>
+                        <li><button onclick = "alignText('center',${idx})"><i class="fa fa-align-justify"></i></button></li>
+                        <li><button onclick = "alignText('right',${idx})"><i class="fa fa-align-right"></i></button></li>
                         <li><button><i class="fa fa-plus"></i></button></li>
                         <li><button><i class="fa fa-minus"></i></button></li>
                     </ul>
@@ -204,4 +202,16 @@ function renderControls(){
     });
     var elControls=document.querySelector('.controls');
     elControls.innerHTML=strHtmls.join("");
+}
+
+
+function alignText(pram,idx){
+    gMeme.txts[idx].align = pram;
+    handleImg(gMeme.selectedImgId);
+}
+
+function changeColor(elColor,idx){
+    var  color = elColor.value;
+    gMeme.txts[idx].color = color;
+    handleImg(gMeme.selectedImgId);
 }
