@@ -34,6 +34,7 @@ header{
 
 .keywords-wrapper li{
     padding: 0  10px 10px 10px;
+    cursor: pointer;
 }
 
 /*----grid----*/
@@ -43,6 +44,7 @@ header{
     height: 100%;
     grid-column: span 4;
     grid-row: span 4;
+    cursor: pointer;
 }
 
 /* .img-1 {
