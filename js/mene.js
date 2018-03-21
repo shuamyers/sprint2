@@ -10,8 +10,8 @@ var gCtx;
 var gMeme = {
     selectedImgId: null,
     txts: [
-    
-              {
+        
+           {
                 txt:"",
                 x: 30,
                 y: 50,
