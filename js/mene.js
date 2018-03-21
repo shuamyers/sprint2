@@ -101,9 +101,9 @@ function getImg(imgId, keywords) {
     };
 }
 
-function getText(elInput) {
+function getText(elInput , idx) {
     var txt = elInput.value;
-    gMeme.txts[0].txt = txt;
+    gMeme.txts[idx].txt = txt;
     handleImg(gMeme.selectedImgId);
 }
 
