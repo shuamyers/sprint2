@@ -14,7 +14,7 @@ var gMeme = {
                 txt:"",
                 y: 70,
                 size: 60,
-                align: "left",
+                align: "center",
                 color: "#fff"
               },
 
@@ -194,8 +194,10 @@ function renderControls(){
                         <li><button onclick = "alignText('left',${idx})"><i class="fa fa-align-left"></i></button></li>
                         <li><button onclick = "alignText('center',${idx})"><i class="fa fa-align-justify"></i></button></li>
                         <li><button onclick = "alignText('right',${idx})"><i class="fa fa-align-right"></i></button></li>
-                        <li><button onclick="moveTxt(-4,${idx})"><i class="fa fa-plus"></i></button></li>
-                        <li><button onclick="moveTxt(4,${idx})"><i class="fa fa-minus"></i></button></li>
+                        <li><button onclick="fontSizeChanger(4,${idx})"><i class="fa fa-plus"></i></button></li>
+                        <li><button onclick="fontSizeChanger(-4,${idx})"><i class="fa fa-minus"></i></button></li>
+                        <li><button onclick="moveTxt(-4,${idx})"><i class="fas fa-arrow-up"></i></button></li>
+                        <li><button onclick="moveTxt(4,${idx})"><i class="fas fa-arrow-down"></i></button></li>
                     </ul>
                 </div>
         `
@@ -212,6 +214,7 @@ function moveTxt (move , idx) {
 
 function updateBottomTxt () {
     gMeme.txts[1].y = (gCtx.canvas.height) - 50;
+}
 
 function alignText(pram,idx){
     gMeme.txts[idx].align = pram;
@@ -221,5 +224,10 @@ function alignText(pram,idx){
 function changeColor(elColor,idx){
     var  color = elColor.value;
     gMeme.txts[idx].color = color;
+    handleImg(gMeme.selectedImgId);
+}
+
+function fontSizeChanger(num ,idx) {
+    gMeme.txts[idx].size += num;
     handleImg(gMeme.selectedImgId);
 }
