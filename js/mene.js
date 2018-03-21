@@ -134,7 +134,7 @@ function drawText(line) {
     var y = line.y;
     gCtx.textAlign=line.align;
     gCtx.fillStyle = line.color;
-    gCtx.font = "40px 'Segoe UI'";
+    gCtx.font = "72px 'Impact'";    
     gCtx.fillText(line.txt, x, y);
 }
 
