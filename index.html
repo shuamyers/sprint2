@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body onload=" init()">
@@ -40,7 +41,32 @@
             <canvas id="imgCanvas" width="578" height="400"></canvas>
             <div class="controls">
                 <h2>controls go here</h2>
-                <input type="text" class="top-line" onkeyup="getText(this)">
+                <div class="line-up-wrapper">
+                    <input type="text" class="top-line" onkeyup="getText(this)">
+                    <ul class="flex clean-list">
+                            <li><button><i class="fa fa-trash-alt"></i></button></li>
+                        <li><input type="color"></input></li>
+                        <li><button><i class="fa fa-font"></i></button></li>
+                        <li><button><i class="fa fa-align-left"></i></button></li>
+                        <li><button><i class="fa fa-align-justify"></i></button></li>
+                        <li><button><i class="fa fa-align-right"></i></button></li>
+                        <li><button><i class="fa fa-plus"></i></button></li>
+                        <li><button><i class="fa fa-minus"></i></button></li>
+                    </ul>
+                </div>
+                <div class="line-bottom-wrapper">
+                    <input type="text" class="top-line" onkeyup="getText(this)">
+                    <ul class="flex clean-list">
+                        <li><button><i class="fa fa-trash-alt"></i></button></li>
+                            <li><input type="color"></input></li>
+                            <li><button><i class="fa fa-align-left"></i></button></li>
+                            <li><button><i class="fa fa-align-justify"></i></button></li>
+                            <li><button><i class="fa fa-align-right"></i></button></li>
+                            <li><button><i class="fa fa-plus"></i></button></li>
+                            <li><button><i class="fa fa-minus"></i></button></li>
+                            <li><button><i class="fa fa-font"></i></button></li>
+                        </ul>
+                </div>
             </div>
         </section>
 
