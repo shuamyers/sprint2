@@ -101,23 +101,40 @@ function handleImg(elImg) {
     console.log(url);
     var elCanvas = document.querySelector('#imgCanvas');
     gCtx = elCanvas.getContext('2d');
+    gCtx.clearRect(0,0 ,578,400);
     var imageObj = new Image();
       imageObj.onload = function () {
-        drawImage(this);
+        drawImage(this,elCanvas);
       };
       imageObj.src = url;
-}
+// }
 
-function drawImage(imageObj) {
-    var x = 0;//69;
-    var y = 0;//50;
+// function drawImage(imageObj,canvas) {
+//     var x = 0;//69;
+//     var y = 0;//50;
+//     // gCtx.drawImage(imageObj, x, y);
+//     var hRatio = canvas.width / imageObj.width    ;
+//     var vRatio = canvas.height / imageObj.height  ;
+//     var ratio  = Math.min ( hRatio, vRatio );
+//     gCtx.drawImage(imageObj, 0,0, imageObj.width, imageObj.height, 0,0,imageObj.width*ratio, imageObj.height*ratio);
+//     var imageData = gCtx.getImageData(x, y, imageObj.width, imageObj.height);
+//     var data = imageData.data;
+//  }
 
-    gCtx.drawImage(imageObj, x, y);
+ function drawImage(img, canvas) {
+    var canvas = gCtx.canvas ;
+    var hRatio = canvas.width  / img.width    ;
+    var vRatio =  canvas.height / img.height  ;
+    var ratio  = Math.min ( hRatio, vRatio );
+    var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
+    var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
+    gCtx.drawImage(img, 0,0, img.width, img.height,
+                       centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);  
+    }
 
-    var imageData = gCtx.getImageData(x, y, imageObj.width, imageObj.height);
+    var imageData = gCtx.getImageData(x, y, img.width, img.height);
     var data = imageData.data;
-
-  }
+}
 
 
   function getSearchWord(elSearch){
