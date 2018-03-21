@@ -191,9 +191,9 @@ function renderControls() {
   var strHtmls = gMeme.txts.map(function(line, idx) {
     var strHtml = `
         <div class="line-btn line-${idx}">
-         <input type="text" class="top-line" onkeyup="getText(this,${idx})">
+         <input type="text" class="top-line" onkeyup="getText(this,${idx})" placeholder="${gMeme.txts[idx].txt}">
                     <ul class="flex clean-list">
-                            <li><button><i class="fa fa-trash-alt"></i></button></li>
+                            <li><button onclick="deleteLine(${idx})"><i class="fa fa-trash-alt"></i></button></li>
                         <li><input type="color" onchange="changeColor(this,${idx})"></input></li>
                         <li><button><i class="fa fa-font"></i></button></li>
                         <li><button onclick = "addTextShadow(${idx})" ><i class="fa fa-pied-piper-pp"></i></button></li>
@@ -211,7 +211,7 @@ function renderControls() {
         return strHtml;
     });
     strHtmls = strHtmls.join("");
-    strHtmls += `<button>Add text line</button>`
+    strHtmls += `<button onclick="addTxtLine()">Add text line</button>`
     var elControls=document.querySelector('.controls');
     elControls.innerHTML=strHtmls;
 }
@@ -253,3 +253,33 @@ function changeColor(elColor, idx) {
   handleImg(gMeme.selectedImgId);
 }
 
+function addTxtLine() {
+    if(gMeme.txts.length > 6)return;
+    var newLine = 
+        {
+    txt: "",
+    y: 70,
+    size: 60,
+    align: "center",
+    color: "#fff",
+    textShadow:false,
+    font:'Impact'
+  };
+    gMeme.txts.push(newLine);
+    renderControls();
+}
+
+
+function deleteLine (idx) {
+    if(gMeme.txts.length < 3) return;
+    gMeme.txts.splice(idx, 1);
+    renderControls();
+    handleImg(gMeme.selectedImgId);
+}
+
+
+function downloadData(elLink) {
+    var canvas = document.getElementById("imgCanvas");
+    var img  = canvas.toDataURL("image/png");
+    elLink.href = `${img}`;
+}
