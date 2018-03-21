@@ -107,7 +107,7 @@ function handleImg(elImg) {
         drawImage(this,elCanvas);
       };
       imageObj.src = url;
-// }
+ }
 
 // function drawImage(imageObj,canvas) {
 //     var x = 0;//69;
@@ -122,19 +122,20 @@ function handleImg(elImg) {
 //  }
 
  function drawImage(img, canvas) {
+    var x = 0;
+    var y = 0;
     var canvas = gCtx.canvas ;
     var hRatio = canvas.width  / img.width    ;
     var vRatio =  canvas.height / img.height  ;
     var ratio  = Math.min ( hRatio, vRatio );
     var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
     var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
-    gCtx.drawImage(img, 0,0, img.width, img.height,
-                       centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);  
-    }
-
+    gCtx.drawImage(img, x,y, img.width, img.height,centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);  
+ 
     var imageData = gCtx.getImageData(x, y, img.width, img.height);
     var data = imageData.data;
-}
+ }
+
 
 
   function getSearchWord(elSearch){
