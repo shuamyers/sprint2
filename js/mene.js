@@ -63,7 +63,7 @@ function renderImgs(imgs) {
         var strHtml = `
          <img class="img-${img.id}" src="${
             img.url
-            }" alt="" onclick="handleImg(${img.id})">
+            }" alt="" onclick="handleImg(${img.id}); openPage();">
                 `;
         return strHtml;
     });
@@ -183,7 +183,7 @@ function getKeyWordsSum(imgs) {
 
 
 function renderControls(){
-    var strHtmls = gMeme.txts.map(function (line, idx) {
+      var strHtmls = gMeme.txts.map(function (line, idx) {
         var strHtml = `
         <div class="line-btn line-${idx}">
          <input type="text" class="top-line" onkeyup="getText(this,${idx})">
@@ -203,8 +203,10 @@ function renderControls(){
         `
         return strHtml;
     });
+    strHtmls = strHtmls.join("");
+    strHtmls += `<button>Add text line</button>`
     var elControls=document.querySelector('.controls');
-    elControls.innerHTML=strHtmls.join("");
+    elControls.innerHTML=strHtmls;
 }
 
 function moveTxt (move , idx) {
@@ -230,4 +232,11 @@ function changeColor(elColor,idx){
 function fontSizeChanger(num ,idx) {
     gMeme.txts[idx].size += num;
     handleImg(gMeme.selectedImgId);
+}
+
+function openPage() {
+    var elMainPage = document.querySelector('.main-page');
+    var elMemePage = document.querySelector('.meme-page');
+    elMainPage.classList.toggle('hide');
+    elMemePage.classList.toggle('hide');
 }
