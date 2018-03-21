@@ -12,33 +12,18 @@ var gMeme = {
     txts: [
            {
                 txt:"",
-<<<<<<< HEAD
-                x: 0,
                 y: 70,
                 size: 60,
-=======
-                y: 20,
-                size: 20,
->>>>>>> b270bd3b783df6fcd7054044ce20879a430f3669
                 align: "left",
                 color: "#fff"
               },
 
              {
-<<<<<<< HEAD
                 txt:"",
-                x: 0,
                 y: 0,
                 size: 60,
-                align: "left",
-                color: "red"
-=======
-                txt:"bottom",
-                y: 300,
-                size: 20,
                 align: "center",
                 color: "#fff"
->>>>>>> b270bd3b783df6fcd7054044ce20879a430f3669
              }
     ]
 };
@@ -148,13 +133,9 @@ function handleImg(id) {
 function drawText(line) {
     var x = gCtx.canvas.width / 2;
     var y = line.y;
-<<<<<<< HEAD
     gCtx.font = `${line.size}px 'Segoe UI`;
-=======
     gCtx.textAlign=line.align;
     gCtx.fillStyle = line.color;
-    gCtx.font = "40px 'Segoe UI'";
->>>>>>> b270bd3b783df6fcd7054044ce20879a430f3669
     gCtx.fillText(line.txt, x, y);
 }
 
@@ -210,19 +191,11 @@ function renderControls(){
                             <li><button><i class="fa fa-trash-alt"></i></button></li>
                         <li><input type="color" onchange="changeColor(this,${idx})"></input></li>
                         <li><button><i class="fa fa-font"></i></button></li>
-<<<<<<< HEAD
-                        <li><button><i class="fa fa-align-left"></i></button></li>
-                        <li><button><i class="fa fa-align-justify"></i></button></li>
-                        <li><button><i class="fa fa-align-right"></i></button></li>
-                        <li><button onclick="moveTxt(-4,${idx})"><i class="fa fa-plus"></i></button></li>
-                        <li><button onclick="moveTxt(4,${idx})"><i class="fa fa-minus"></i></button></li>
-=======
                         <li><button onclick = "alignText('left',${idx})"><i class="fa fa-align-left"></i></button></li>
                         <li><button onclick = "alignText('center',${idx})"><i class="fa fa-align-justify"></i></button></li>
                         <li><button onclick = "alignText('right',${idx})"><i class="fa fa-align-right"></i></button></li>
-                        <li><button><i class="fa fa-plus"></i></button></li>
-                        <li><button><i class="fa fa-minus"></i></button></li>
->>>>>>> b270bd3b783df6fcd7054044ce20879a430f3669
+                        <li><button onclick="moveTxt(-4,${idx})"><i class="fa fa-plus"></i></button></li>
+                        <li><button onclick="moveTxt(4,${idx})"><i class="fa fa-minus"></i></button></li>
                     </ul>
                 </div>
         `
@@ -232,7 +205,6 @@ function renderControls(){
     elControls.innerHTML=strHtmls.join("");
 }
 
-<<<<<<< HEAD
 function moveTxt (move , idx) {
     gMeme.txts[idx].y += move;
     handleImg(gMeme.selectedImgId);
@@ -240,7 +212,6 @@ function moveTxt (move , idx) {
 
 function updateBottomTxt () {
     gMeme.txts[1].y = (gCtx.canvas.height) - 50;
-=======
 
 function alignText(pram,idx){
     gMeme.txts[idx].align = pram;
@@ -251,5 +222,4 @@ function changeColor(elColor,idx){
     var  color = elColor.value;
     gMeme.txts[idx].color = color;
     handleImg(gMeme.selectedImgId);
->>>>>>> b270bd3b783df6fcd7054044ce20879a430f3669
 }
