@@ -33,7 +33,7 @@ function renderKeyWords(keywords) {
     for (var key in keywords) {
         var fontSize = keywords[key] * 6;
         var strHtml = `
-        <li style="font-size:${fontSize}px;">${key}</li>
+        <li onclick="getSearchWord(this)" style="font-size:${fontSize}px;">${key}</li>
                `
        strHtmls += strHtml;
         }
@@ -120,13 +120,19 @@ function drawImage(imageObj) {
   }
 
 
-  function searchMemes(elSearch){
-        var input = elSearch.value.toLowerCase(); 
+  function getSearchWord(elSearch){
+    var input = elSearch.value; 
+    if(input === 0) input = elSearch.innerText;
+    searchMemes(input);
+  }
+
+  function searchMemes(input){
+    input = input.toLowerCase(); 
+    console.log('here');
         var filteredImgs = gImgs.filter(function(img){
             return img.keywords.some(function(word){
                     return (word.toLowerCase().indexOf(input) > -1);
              });              
         })
-        console.log(filteredImgs);
         renderImgs(filteredImgs);
   }
