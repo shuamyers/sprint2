@@ -271,6 +271,8 @@ function openPage() {
     var elMainPage = document.querySelector('.main-page');
     var elMemePage = document.querySelector('.meme-page');
     var elSearch = document.querySelector('.nav-search');
+    var elSearchBar = document.querySelector('.search-bar');
+    elSearchBar.classList.toggle('hide');
     elSearch.classList.toggle('hide');
     elMainPage.classList.toggle('hide');
     elMemePage.classList.toggle('hide');
