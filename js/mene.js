@@ -255,7 +255,7 @@ function changeColor(elColor, idx) {
 }
 
 function addTxtLine() {
-    if(gMeme.txts.length > 6)return;
+    if(gMeme.txts.length > 3)return;
     var newLine = 
         {
     txt: "",
