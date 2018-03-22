@@ -1,3 +1,5 @@
+ /*-------------------------gallery-----------------------------*/
+
 .hamburger {
     display: none;
 }
@@ -28,4 +30,13 @@
     grid-gap: 2px;
     /* background-color: rgb(36, 61, 82); */
     padding: 10px;
+  }
+
+
+  /*-------------------------meme genaretor-----------------------------*/
+
+  aside {
+    justify-content: space-around;
+    background: #fafafa;
+    border: 1px solid hsla(0, 0%, 0%, 0.12);
   }
