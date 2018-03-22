@@ -12,11 +12,11 @@
         <header>
             <div class=" header-warper flex space-between container ">
                 <div class="title">
-                    Mene-G.
+                    Mene-Gen.
                 </div>
                 <nav>
                     <ul class="nav-bar flex clean-list space-between">
-                        <li><input type="search" onkeyup=" runSearch(this)" placeholder="Search"></li>
+                        <li><input type="search" onkeyup=" runSearch(this)" placeholder=" Search"></li>
                         <li><a href="#">Abut</a></li>
                         <li><a href="#">Contact</a></li>
                         <li><a href="#">Mene's</a></li>
@@ -40,19 +40,21 @@
             </main>
         </section>
         <section class="meme-page hide">
-        <section class="meme-page hide container flex  space-between">
+        <section class="meme-page hide edit-section container flex  justify-center">
             <canvas id="imgCanvas"></canvas>
             <aside class="flex">
-               <button onclick="openPage()">Return to gallery</button>
+               <button class="back-btn" onclick="openPage()">Return to gallery</button>
                <div class="controls">
     
                </div>
-               <a id="download" onclick="downloadData(this)" download="image.png"> Download </a>
+               <a class="download-btn" id="download" onclick="downloadData(this)" download="image.png">
+                    <i class="fa fa-download"></i> Download 
+                </a>
            </aside>
         </section>
     </section>
             <footer>
-                
+            
             </footer>
 
     <script src="js/mene.js"></script>

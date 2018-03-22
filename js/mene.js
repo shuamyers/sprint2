@@ -191,19 +191,20 @@ function renderControls() {
   var strHtmls = gMeme.txts.map(function(line, idx) {
     var strHtml = `
         <div class="line-btn line-${idx}">
-         <input type="text" class="top-line" onkeyup="getText(this,${idx})" value="${gMeme.txts[idx].txt}">
+         <input type="text" class="line-input" onkeyup="getText(this,${idx})"
+             placeholder="Enter your text here..." value="${gMeme.txts[idx].txt}">
                     <ul class="flex clean-list">
-                            <li><button onclick="deleteLine(${idx})"><i class="fa fa-trash-alt"></i></button></li>
-                        <li><input type="color" onchange="changeColor(this,${idx})"></input></li>
-                        <li><button><i class="fa fa-font"></i></button></li>
-                        <li><button onclick = "addTextShadow(${idx})" ><i class="fa fa-pied-piper-pp"></i></button></li>
-                        <li><button onclick = "alignText('left',${idx})"><i class="fa fa-align-left"></i></button></li>
-                        <li><button onclick = "alignText('center',${idx})"><i class="fa fa-align-justify"></i></button></li>
-                        <li><button onclick = "alignText('right',${idx})"><i class="fa fa-align-right"></i></button></li>
-                        <li><button onclick="fontSizeChanger(4,${idx})"><i class="fa fa-plus"></i></button></li>
-                        <li><button onclick="fontSizeChanger(-4,${idx})"><i class="fa fa-minus"></i></button></li>
-                        <li><button onclick="moveTxt(-4,${idx})"><i class="fas fa-arrow-up"></i></button></li>
-                        <li><button onclick="moveTxt(4,${idx})"><i class="fas fa-arrow-down"></i></button></li>
+                            <li><button class="controls-btn" onclick="deleteLine(${idx})"><i class="fa fa-trash-alt"></i></button></li>
+                        <li><input class="controls-btn" type="color" onchange="changeColor(this,${idx})"></input></li>
+                        <li><button class="controls-btn" ><i class="fa fa-font"></i></button></li>
+                        <li><button class="controls-btn" onclick = "addTextShadow(${idx})" ><i class="fa fa-pied-piper-pp"></i></button></li>
+                        <li><button class="controls-btn" onclick = "alignText('left',${idx})"><i class="fa fa-align-left"></i></button></li>
+                        <li><button class="controls-btn" onclick = "alignText('center',${idx})"><i class="fa fa-align-justify"></i></button></li>
+                        <li><button class="controls-btn" onclick = "alignText('right',${idx})"><i class="fa fa-align-right"></i></button></li>
+                        <li><button class="controls-btn" onclick="fontSizeChanger(4,${idx})"><i class="fa fa-plus"></i></button></li>
+                        <li><button class="controls-btn" onclick="fontSizeChanger(-4,${idx})"><i class="fa fa-minus"></i></button></li>
+                        <li><button class="controls-btn" onclick="moveTxt(-4,${idx})"><i class="fas fa-arrow-up"></i></button></li>
+                        <li><button class="controls-btn" onclick="moveTxt(4,${idx})"><i class="fas fa-arrow-down"></i></button></li>
                     </ul>
                 
                 </div>
@@ -211,7 +212,7 @@ function renderControls() {
         return strHtml;
     });
     strHtmls = strHtmls.join("");
-    strHtmls += `<button onclick="addTxtLine()">Add text line</button>`
+    strHtmls += `<button class="add-line" onclick="addTxtLine()"><i class="fa fa-plus"></i> New line</button>`
     var elControls=document.querySelector('.controls');
     elControls.innerHTML=strHtmls;
 }
