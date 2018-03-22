@@ -3,7 +3,6 @@
 }
 
 
-
 /* button{
     border-radius: 2px;
 } */
@@ -121,10 +120,6 @@ nav ul input{
     height: 30px;
 }
 
-.add-line{
-    height: 30px;
-    margin-top:15px;
-}
 /* layout */
 
 .container{
@@ -136,9 +131,8 @@ nav ul input{
     margin-top:100px;
 }
 
-aside{
-    margin-left: 20px; 
-}
+
+
 /*----Canvas----*/
 
 #imgCanvas{
@@ -155,7 +149,42 @@ aside {
     background: #0e0a49;
     padding: 10px;
     border-radius: 5px;
+    margin-left: 20px; 
 }
+
+.add-line{
+    height: 30px;
+    margin-top:15px;
+}
+ 
+ul .fonts-li{
+    height:30px;
+    width: 70px;
+    
+}
+ul .fonts-li select{
+    height: 100%;
+    width: 100%;
+}
+
+.arial{
+ font-family: Arial, Helvetica, sans-serif;   
+}
+
+.impact{
+ font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;   
+}
+
+.lucida{
+ font-family:"Lucida Console", Monaco, monospace;   
+ font-weight: 700;
+}
+
+.comic{
+ font-family: "Comic Sans MS", cursive, sans-serif; 
+ font-weight: bold;
+}
+
 
 #download{
     text-decoration: none;
@@ -175,6 +204,8 @@ aside {
     margin-top: 15px 
     
 }
+
+
 
 /*----Helpers----*/
 
