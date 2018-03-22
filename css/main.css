@@ -9,7 +9,7 @@
 
 body{
     margin: 0;
-    background: #d3edf2;
+    background: #fafafa;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
@@ -17,7 +17,6 @@ body{
 header{
     background: #0e0a49;
     color: #fff;
-    height: 100px;
     border-bottom: 6px solid #121116;
 }
 
@@ -25,17 +24,34 @@ header{
 .header-warper{
     line-height: 100px;
 }
- 
- 
+
+    .nav-bar li {
+    height: 100px;
+    text-align: center;
+    }
+    
+    .nav-bar li a{
+        display: block;
+        /* width: 132px; */
+        line-height: 64px;
+        margin: 10px;
+        background:transparent;
+        padding: 10px;
+        color: #fff;
+        font-size: 20px;
+        text-decoration: none;
+    }
+    
     .nav-bar a:hover {
       color: #58c93a; 
       border-bottom: 6px solid #58c93a;
     }
 
-.title{
+    .title{
     font-family: monospace;
     font-size: 28px;
-}
+   }
+
 nav ul input{
     height: 30px;
     border-radius: 50px;
@@ -52,6 +68,7 @@ nav ul input{
 
 
 /*----keywords bar----*/
+
 .keywords-wrapper{
     flex-direction: column;
 }
@@ -72,11 +89,10 @@ nav ul input{
 .images-wrapper img{
     width: 100%;
     height: 100%;
-    grid-column: span 3;
+    grid-column: span 2;
     grid-row: span 2;
     cursor: pointer;
-    border: 10px solid #0e0a49;
-    border-radius: 10px;
+    border-radius: 0px;
 }
 .line-input {
     width: 100%;
@@ -93,22 +109,13 @@ nav ul input{
   .grid-container {
     display: grid;
     height: 100%;
-    grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: calc( (100vw - 220px) / 12 );  
-    grid-gap: 20px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: calc( (100vw - 20px) / 6 );  
+    grid-gap: 2px;
     /* background-color: rgb(36, 61, 82); */
     padding: 10px;
   }
 
-.nav-bar  a{
-    width: 40px;
-    margin: 10px;
-    height: 100px;
-    background:transparent;
-    padding: 10px;
-    color: #fff;
-    font-size: 20px;
-}
 
 .add-img {
     position: fixed;
@@ -351,12 +358,12 @@ ul .fonts-li select{
 }
 
 
-.msg {
+.uploud-url {
     height: 4em;
     width: 26em;
 }
 
-.sign-up{
+.uploud{
     height: 4em;
     width: 10em;
 }

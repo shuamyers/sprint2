@@ -42,6 +42,7 @@ function init() {
 
 function renderKeyWords(keywords) {
   var strHtmls = `
+   <li class="side-search clean-list"><input type="search" onkeyup=" runSearch(this)" placeholder=" Search"></li>
     <h2>Keywords:</h2>
     <ul class="keywords-bar flex flex-wrap clean-list">
     `;
@@ -320,4 +321,14 @@ function addImg () {
   openPage();
   var elAddimg = document.querySelector('.add-img');
   elAddimg.classList.toggle('hide');
+}
+
+function toggleMenu() {
+  var navBar = document.getElementById('navBar');
+  navBar.classList.toggle('open');
+}
+
+function toggleSearch(){
+  var searchBar = document.querySelector('.keywords-wrapper');
+  searchBar.classList.toggle('open');
 }
