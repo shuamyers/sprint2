@@ -79,14 +79,14 @@ function getImgs() {
     imgs.push(getImg(`img/001.jpg` , ["funny", "happy"]));
     imgs.push(getImg("img/002.jpg" , ["funny", "happy"]));
     imgs.push(getImg("img/003.jpg" , ["funny"]));
-  imgs.push(getImg("img/003.jpg" , ["funny", "funny"]));
-  imgs.push(getImg("img/003.jpg" , ["Trump", "important"]));
-  imgs.push(getImg("img/003.jpg" , ["Trump", "important"]));
-  imgs.push(getImg("img/003.jpg" , ["Trump", "important"]));
-  imgs.push(getImg("img/003.jpg" , ["Trump", "Trump"]));
-  imgs.push(getImg("img/003.jpg" , ["happy", "Trump"]));
-  imgs.push(getImg("img/003.jpg" , ["Trump", "important"]));
-  imgs.push(getImg("img/003.jpg" , ["Trump", "Trump"]));
+  imgs.push(getImg("img/008.jpg" , ["funny", "cool"]));
+  imgs.push(getImg("img/005.jpg" , ["Trump", "important"]));
+  imgs.push(getImg("img/004.jpg" , ["Trump", "important"]));
+  imgs.push(getImg("img/007.jpg" , ["Trump", "Got"]));
+  imgs.push(getImg("img/008.jpg" , ["Trump", "Trump"]));
+  imgs.push(getImg("img/009.jpg" , ["happy", "Trump"]));
+  imgs.push(getImg("img/0010.jpg" , ["Trump", "important"]));
+  imgs.push(getImg("img/003.jpg" , ["Sprint", "Trump"]));
   imgs.push(getImg("img/003.jpg" , ["important", "Trump"]));
   
   return imgs;
