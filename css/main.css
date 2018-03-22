@@ -146,16 +146,17 @@ aside{
 #imgCanvas{
     max-width: 700px; 
     max-height: 500px;
-}
-canvas{
     border: 10px solid #0e0a49;
     margin-right:20px;
+    border-radius: 5px;
 }
+
 
 aside {
     flex-direction: column;
     background: #0e0a49;
     padding: 10px;
+    border-radius: 5px;
 }
 
 #download{
