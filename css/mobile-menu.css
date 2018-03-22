@@ -10,6 +10,7 @@
     transition: transform .5s;
     justify-content: flex-start;
     background: #052b75;
+    z-index: 201;
 }
 
 .nav-bar.open {
@@ -101,7 +102,6 @@
 #imgCanvas{
     max-width: 700px; 
     max-height: 290px;
-    border: 10px solid #0e0a49;
     margin-right:20px;
     border-radius: 5px;
     width: 100%;
@@ -144,4 +144,9 @@
 
   .search-bar{
       display: none;
+  }
+
+
+  aside{
+      width: 100%;
   }
