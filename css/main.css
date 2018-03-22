@@ -94,7 +94,7 @@ nav ul input{
     grid-column: span 2;
     grid-row: span 2;
     cursor: pointer;
-    border-radius: 0px;
+    border-radius: 4px;
 }
 .line-input {
     width: 100%;
@@ -111,17 +111,16 @@ nav ul input{
   .grid-container {
     display: grid;
     height: 100%;
-    grid-template-columns: repeat(6, 1fr);
-    grid-auto-rows: calc( (100vw - 20px) / 6 );  
-    grid-gap: 2px;
+    grid-template-columns: repeat(8, 1fr);
+    grid-auto-rows: calc( (100vw - 20px) / 8 );  
+    grid-gap: 8px;
     /* background-color: rgb(36, 61, 82); */
     padding: 10px;
   }
 
-
 .add-img {
     position: fixed;
-    margin: 30px;
+    margin-top: 20px;
     border-radius: 50%;
     height: 50px;
     width: 50px;

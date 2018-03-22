@@ -8,6 +8,11 @@
     display: none;
 }
 
+.add-img {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
 .side-search {
     display: none;
 }
@@ -17,17 +22,17 @@
 .images-wrapper img{
     width: 100%;
     height: 100%;
-    grid-column: span 4;
-    grid-row: span 3;
+    grid-column: span 3;
+    grid-row: span 2;
     cursor: pointer;
-    border-radius: 0px;
+    border-radius: 2px;
 }
 
   .grid-container {
 
     grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: calc( (100vw - 22px) / 12 );  
-    grid-gap: 2px;
+    grid-auto-rows: calc( (100vw - 111px) / 12 );  
+    grid-gap: 10px;
     /* background-color: rgb(36, 61, 82); */
     padding: 10px;
   }
