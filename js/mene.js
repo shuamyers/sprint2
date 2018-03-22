@@ -197,7 +197,14 @@ function renderControls() {
                     <ul class="flex clean-list">
                             <li><button class="controls-btn" onclick="deleteLine(${idx})"><i class="fa fa-trash-alt"></i></button></li>
                         <li><input class="controls-btn" type="color" onchange="changeColor(this,${idx})"></input></li>
-                        <li><button class="controls-btn" ><i class="fa fa-font"></i></button></li>
+                        <li class="fonts-li">
+                            <select name="fonts" onchange="changeFont(this,${idx})">
+                                <option class="arial" value="Arial">Arial</option>
+                                <option class="impact" value="Impact">Impact</option>
+                                <option class="lucida" value="Lucida Console">Lucida</option>
+                                <option class="comic" value="Comic Sans MS">Comic</option>
+                            </select>
+                        </li>
                         <li><button class="controls-btn" onclick = "addTextShadow(${idx})" ><i class="fa fa-pied-piper-pp"></i></button></li>
                         <li><button class="controls-btn" onclick = "alignText('left',${idx})"><i class="fa fa-align-left"></i></button></li>
                         <li><button class="controls-btn" onclick = "alignText('center',${idx})"><i class="fa fa-align-justify"></i></button></li>
@@ -218,6 +225,11 @@ function renderControls() {
     elControls.innerHTML=strHtmls;
 }
 
+
+function changeFont(elFont,idx){
+    gMeme.txts[idx].font = elFont.value;
+    handleImg(gMeme.selectedImgId);
+}
 function addTextShadow(idx){
     var shadow =  gMeme.txts[idx].textShadow;
     gMeme.txts[idx].textShadow = (shadow)? false : true;
