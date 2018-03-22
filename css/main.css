@@ -85,7 +85,9 @@ nav ul input{
     cursor: pointer;
 }
 
-
+.background{
+   border: 1px solid #c7c7c796;
+}
 /*----grid----*/
 
 .images-wrapper img{
