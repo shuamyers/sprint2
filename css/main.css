@@ -251,15 +251,18 @@ ul .fonts-li select{
 
 .form-group{
     flex-direction: column; 
+    max-width: 100%;
 }
 .input{
     width: 580px;
     height: 38px;
     margin-bottom: 20px; 
+    max-width: 100%;
 }
 #input-message{
     width: 580px;
     height: 150px;
+    max-width: 100%;
 }
 form button{
     width: 90px;
@@ -275,6 +278,7 @@ form button{
     font-size: 30px;
     font-weight: 400;
     line-height: 4.56px;
+    max-width: 100%;
 
 }
 .contact h3{
@@ -283,6 +287,8 @@ form button{
     font-size: 18px;
     font-weight: 400;
     line-height: 21.56px;
+    max-width: 100%;
+    margin-bottom: 30px;
 }
 /*----Helpers----*/
 
