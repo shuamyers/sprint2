@@ -42,7 +42,8 @@ function init() {
 
 function renderKeyWords(keywords) {
   var strHtmls = `
-  <h2>Keywords:</h2>
+   <li class="side-search clean-list"><input type="search" onkeyup=" runSearch(this)" placeholder=" Search"></li>
+    <h2>Keywords:</h2>
     <ul class="keywords-bar flex flex-wrap clean-list">
     `;
 
@@ -100,7 +101,8 @@ function getImg( url , keywords) {
 }
 
 function getText(elInput, idx) {
-    var txt = elInput.value;
+    // check if the elInput is div with content editable or just input type text.
+    var txt = elInput.value ? elInput.value : elInput.innerText;
     gMeme.txts[idx].txt = txt;
     handleImg(gMeme.selectedImgId);
 }
@@ -193,52 +195,61 @@ function renderControls() {
         var strHtml = `
         <div class="line-btn line-${idx}">
         <input type="text" class="line-input" onkeyup="getText(this,${idx})"
-        placeholder="Enter your text here..." value="${gMeme.txts[idx].txt}">
-        <ul class="flex clean-list">
-        <li><button class="controls-btn" onclick="deleteLine(${idx})"><i class="fa fa-trash-alt"></i></button></li>
-        <li><input class="controls-btn" type="color" onchange="changeColor(this,${idx})"></input></li>
-        <li class="fonts-li">
-        <select name="fonts" onchange="changeFont(this,${idx})">
-        <option class="arial" value="Arial">Arial</option>
-        <option class="impact" value="Impact">Impact</option>
-        <option class="lucida" value="Lucida Console">Lucida</option>
-        <option class="comic" value="Comic Sans MS">Comic</option>
-        </select>
-                        </li>
-                        <li><button class="controls-btn" onclick = "addTextShadow(${idx})" ><i class="fa fa-pied-piper-pp"></i></button></li>
-                        <li><button class="controls-btn" onclick = "alignText('right',${idx})"><i class="fa fa-align-left"></i></button></li>
-                        <li><button class="controls-btn" onclick = "alignText('center',${idx})"><i class="fa fa-align-justify"></i></button></li>
-                        <li><button class="controls-btn" onclick = "alignText('left',${idx})"><i class="fa fa-align-right"></i></button></li>
-                        <li><button class="controls-btn" onclick="fontSizeChanger(4,${idx})"><i class="fa fa-plus"></i></button></li>
-                        <li><button class="controls-btn" onclick="fontSizeChanger(-4,${idx})"><i class="fa fa-minus"></i></button></li>
-                        <li><button class="controls-btn" onclick="moveTxt(-4,${idx})"><i class="fas fa-arrow-up"></i></button></li>
-                        <li><button class="controls-btn" onclick="moveTxt(4,${idx})"><i class="fas fa-arrow-down"></i></button></li>
-                        </ul>
-                        
-                        </div>
-                        `
-                        return strHtml;
-                    });
-                    strHtmls = strHtmls.join("");
-                    strHtmls += `<button class="add-line" onclick="addTxtLine()"><i class="fa fa-plus"></i> New line</button>`
-                    var elControls=document.querySelector('.controls');
-                    elControls.innerHTML=strHtmls;
-                }
+                placeholder="Enter your text here..." value="${gMeme.txts[idx].txt}">
+            <ul class="flex clean-list">
+                <li><button class="controls-btn" onclick="deleteLine(${idx})"><i class="fa fa-trash-alt"></i></button></li>
+                <li><input class="controls-btn" type="color" onchange="changeColor(this,${idx})"></input></li>
+                <li class="fonts-li">
+                <select name="fonts" onchange="changeFont(this,${idx})">
+                <option class="arial" value="Arial">Arial</option>
+                <option class="impact" value="Impact">Impact</option>
+                <option class="lucida" value="Lucida Console">Lucida</option>
+                <option class="comic" value="Comic Sans MS">Comic</option>
+                </select>
+                </li>
+                <li><button class="controls-btn" onclick = "addTextShadow(${idx})" ><i class="fa fa-pied-piper-pp"></i></button></li>
+                <li><button class="controls-btn" onclick = "alignText('right',${idx})"><i class="fa fa-align-left"></i></button></li>
+                <li><button class="controls-btn" onclick = "alignText('center',${idx})"><i class="fa fa-align-justify"></i></button></li>
+                <li><button class="controls-btn" onclick = "alignText('left',${idx})"><i class="fa fa-align-right"></i></button></li>
+                <li><button class="controls-btn" onclick="fontSizeChanger(4,${idx})"><i class="fa fa-plus"></i></button></li>
+                <li><button class="controls-btn" onclick="fontSizeChanger(-4,${idx})"><i class="fa fa-minus"></i></button></li>
+                <li><button class="controls-btn" onclick="moveTxt(-4,${idx})"><i class="fas fa-arrow-up"></i></button></li>
+                <li><button class="controls-btn" onclick="moveTxt(4,${idx})"><i class="fas fa-arrow-down"></i></button></li>
+            </ul>
+        
+        </div>
+        `
+        return strHtml;
+    });
+    
+    var divHtmls =  gMeme.txts.map(function(line, idx){
+        return `<div class="input-div div-${idx}" contenteditable="true" onkeyup="getText(this,${idx})"> </div>`   
+    });
+    strHtmls = strHtmls.join("");
+    strHtmls += `<button class="add-line" onclick="addTxtLine()"><i class="fa fa-plus"></i> New line</button>`
+    
+    var elControls=document.querySelector('.controls');
+    elControls.innerHTML = strHtmls;
 
-                
-                function changeFont(elFont,idx){
-                    gMeme.txts[idx].font = elFont.value;
-                    handleImg(gMeme.selectedImgId);
-                }
-                function addTextShadow(idx){
-                    var shadow =  gMeme.txts[idx].textShadow;
-                    gMeme.txts[idx].textShadow = (shadow)? false : true;
-                    handleImg(gMeme.selectedImgId);
-                }
-                
-                function moveTxt(move, idx) {
-                    gMeme.txts[idx].y += move;
-  handleImg(gMeme.selectedImgId);
+    divHtmls = divHtmls.join("");
+    var elCanvasWrapper = document.querySelector('.editable-div-container');
+    elCanvasWrapper.innerHTML = divHtmls;
+}
+
+
+function changeFont(elFont,idx){
+    gMeme.txts[idx].font = elFont.value;
+    handleImg(gMeme.selectedImgId);
+}
+function addTextShadow(idx){
+    var shadow =  gMeme.txts[idx].textShadow;
+    gMeme.txts[idx].textShadow = (shadow)? false : true;
+    handleImg(gMeme.selectedImgId);
+}
+
+function moveTxt(move, idx) {
+    gMeme.txts[idx].y += move;
+handleImg(gMeme.selectedImgId);
 }
 
 function updateBottomTxt() {
@@ -339,3 +350,25 @@ function resetInputs(){
    })
 }
 
+function toggleMenu() {
+  var navBar = document.getElementById('navBar');
+  navBar.classList.toggle('open');
+}
+
+function toggleSearch(){
+  var searchBar = document.querySelector('.keywords-wrapper');
+  searchBar.classList.toggle('open');
+}
+
+
+// function getBtns(elDiv,idx){
+//     var elLine0 = document.querySelector('.line-0');
+//     var elLine1 = document.querySelector('.line-1');
+//     if (idx == 0) {
+//          elLine0.classList.remove('hide');
+//          elLine1.classList.add('hide');
+//     }else{
+//         elLine1.classList.remove('hide');
+//         elLine0.classList.add('hide');
+//     }
+// }

@@ -7,30 +7,34 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/mobile-menu.css">
 </head>
 <body onload=" init()">
         <div class="modal flex">
                 <div class="modal-container flex align-center">
                  <button class="btn-close" onclick="closeModal()">x</button>
                  <h1> Uploud your own picture</h1>
+                 <img src="img/add-img.gif" alt="">
                  <div class="modal-container-info flex justify-center">
                     <input type="url" class="uploud-url" placeholder=" Type image url">
-                    <button class="sign-up" onclick="addImg()"> Uploud </button>
+                    <button class="uploud" onclick="addImg()"> Uploud </button>
                  </input>
                 </div>
              </div>
              </div>
         <header>
             <div class=" header-warper flex space-between container align-center">
+                    <button class="search-bar" onclick="toggleSearch()"><i class="fa fa-search"></i></button> 
                 <div class="title">
                     Mene-Gen.
                 </div>
                 <nav>
-                    <ul class="nav-bar flex clean-list space-between">
+                    <button class="hamburger clear-btn" onclick="toggleMenu()"><i class="fa fa-bars"></i></button>
+                    <ul class="nav-bar flex clean-list space-between" id="navBar">
                         <li><input type="search" onkeyup=" runSearch(this)" placeholder=" Search"></li>
-                        <li><a href="#">Abut</a></li>
+                        <li><a href="#">About</a></li>
                         <li><a href="#">Contact</a></li>
-                        <li><a href="#">Meme's gallery</a></li>
+                        <li><a href="#">Meme's</a></li>
                     </ul>
                 </nav>
                 </div>
@@ -92,8 +96,11 @@
         </section>
         <section class="meme-page hide">
         <section class="meme-page hide edit-section container flex  justify-center">
-            <div>
+            <div class="canvas-warper">
                 <canvas id="imgCanvas"></canvas>
+              <div class="editable-div-container">
+
+              </div>
             </div>
             <aside class="flex">
                <button class="back-btn" onclick="openPage(); reset();">Return to gallery</button>
@@ -105,7 +112,6 @@
                 </a>
            </aside>
         </section>
-
             <footer>
                     <div class="rights">
                         <p>© 2014 Meme.com  -  All Rights Reserved</p>
