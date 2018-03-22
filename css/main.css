@@ -75,7 +75,6 @@ nav ul input{
     grid-column: span 3;
     grid-row: span 2;
     cursor: pointer;
-    border: 10px solid #0e0a49;
     border-radius: 10px;
 }
 .line-input {
