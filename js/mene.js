@@ -75,26 +75,26 @@ function renderImgs(imgs) {
 function getImgs() {
   var imgs = [];
 
-  imgs.push(getImg("001", ["funny", "happy"]));
-  imgs.push(getImg("002", ["funny", "happy"]));
-  imgs.push(getImg("003", ["funny"]));
-  imgs.push(getImg("002", ["funny", "funny"]));
-  imgs.push(getImg("003", ["Trump", "important"]));
-  imgs.push(getImg("002", ["Trump", "important"]));
-  imgs.push(getImg("003", ["Trump", "important"]));
-  imgs.push(getImg("002", ["Trump", "Trump"]));
-  imgs.push(getImg("003", ["happy", "Trump"]));
-  imgs.push(getImg("003", ["Trump", "important"]));
-  imgs.push(getImg("002", ["Trump", "Trump"]));
-  imgs.push(getImg("003", ["important", "Trump"]));
+  imgs.push(getImg(`img/001.jpg` , ["funny", "happy"]));
+  imgs.push(getImg("img/002.jpg" , ["funny", "happy"]));
+  imgs.push(getImg("img/003.jpg" , ["funny"]));
+  imgs.push(getImg("img/003.jpg" , ["funny", "funny"]));
+  imgs.push(getImg("img/003.jpg" , ["Trump", "important"]));
+  imgs.push(getImg("img/003.jpg" , ["Trump", "important"]));
+  imgs.push(getImg("img/003.jpg" , ["Trump", "important"]));
+  imgs.push(getImg("img/003.jpg" , ["Trump", "Trump"]));
+  imgs.push(getImg("img/003.jpg" , ["happy", "Trump"]));
+  imgs.push(getImg("img/003.jpg" , ["Trump", "important"]));
+  imgs.push(getImg("img/003.jpg" , ["Trump", "Trump"]));
+  imgs.push(getImg("img/003.jpg" , ["important", "Trump"]));
 
   return imgs;
 }
 
-function getImg(imgId, keywords) {
+function getImg( url , keywords) {
   return {
     id: gId++,
-    url: "img/" + imgId + ".jpg",
+    url: url,
     keywords: keywords
   };
 }
@@ -116,10 +116,11 @@ function handleImg(id) {
   gCtx.clearRect(0, 0, gCtx.canvas.width, gCtx.canvas.height);
   var imageObj = new Image();
   imageObj.src = url;
-  gCtx.canvas.width = imageObj.width;
-  gCtx.canvas.height = imageObj.height;
   imageObj.onload = function() {
+    gCtx.canvas.width = imageObj.width;
+    gCtx.canvas.height = imageObj.height;
     drawImage(this, gElCanvas);
+    // debugger
     if (!gMeme.txts[1].y) updateBottomTxt();
     gMeme.txts.forEach(function(line) {
       drawText(line);
@@ -151,11 +152,11 @@ function drawText(line) {
 function drawImage(img) {
   var x = 0;
   var y = 0;
-
+  console.log(gCtx)
   gCtx.drawImage(img, x, y, img.width, img.height);
 
-  var imageData = gCtx.getImageData(x, y, img.width, img.height);
-  var data = imageData.data;
+  // var imageData = gCtx.getImageData(x, y, img.width, img.height);
+  // var data = imageData.data;
 }
 
 function runSearch(elSearch){
@@ -283,4 +284,28 @@ function downloadData(elLink) {
     var canvas = document.getElementById("imgCanvas");
     var img  = canvas.toDataURL("image/png");
     elLink.href = `${img}`;
+}
+
+
+function openModal(){
+  document.querySelector('.modal').classList.add('modal-open');
+  var elAddimg = document.querySelector('.add-img');
+  elAddimg.classList.toggle('hide');
+}
+
+function closeModal(){
+  document.querySelector('.modal').classList.remove('modal-open');
+  var elAddimg = document.querySelector('.add-img');
+  elAddimg.classList.toggle('hide');
+}
+
+function addImg () {
+  var url = document.querySelector('.uploud-url');
+  gImgs.push(getImg(`${url.value}`, ["funny", "happy"]));
+  renderImgs(gImgs);
+  closeModal();
+  handleImg(gId-1);
+  openPage();
+  var elAddimg = document.querySelector('.add-img');
+  elAddimg.classList.toggle('hide');
 }

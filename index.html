@@ -9,6 +9,18 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body onload=" init()">
+        <div class="modal flex">
+                <div class="modal-container flex align-center">
+                 <button class="btn-close" onclick="closeModal()">x</button>
+                 <h1> Uploud your own picture</h1>
+                 <div class="modal-container-info flex justify-center">
+                    <input type="url" class="uploud-url" placeholder=" Type image url">
+                    <button class="sign-up" onclick="addImg()"> Uploud </button>
+                 </input>
+
+                </div>
+             </div>
+             </div>
         <header>
             <div class=" header-warper flex space-between container align-center">
                 <div class="title">
@@ -26,8 +38,8 @@
       </header>
       <section class="main-page">
             <main>
+                    <button class="add-img" onclick="openModal()"><i class="fa fa-plus"></i></button>
               <div class="flex">
-               
                     <div class="images-wrapper grid-container">
                     </div>
                 
@@ -57,6 +69,7 @@
                         <p>© 2014 Meme.com  -  All Rights Reserved</p>
                     </div>
             </footer>
+ 
 
     <script src="js/mene.js"></script>
 </body>

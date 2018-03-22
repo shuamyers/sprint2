@@ -111,10 +111,18 @@ nav ul input{
     font-size: 20px;
 }
 
+.add-img {
+    position: fixed;
+    margin: 30px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    font-size: 20px;
+}
+
 /* nav a {
     text-decoration: none;
 } */
-
 
 
 .back-btn{
@@ -258,4 +266,67 @@ aside {
   .icon-help::before {
     content: "";
   }
+
+/*----modal----*/
+
+  .modal
+      {
+    visibility: hidden;
+    opacity: 0;
+    /* Position fixed set the element position realtive to the browser window,
+    the fixed element stay in his place even where the page scroll */
+    position: fixed;    
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    background: rgba(3, 2, 36, 0.86);    
+    color: white;
+    box-sizing: border-box;
+    /*the opacity change will take 0.3sec*/
+    transition: opacity 0.3s;
+    padding: 2em;
+}
+
+/* this class is added when we open the modal */
+.modal-open{    
+    visibility: visible;
+    opacity: 1;
+}
+
+.btn-close {
+    align-self: flex-end;
+    border: 0;
+    background: transparent;
+    font-size: 2em;
+    color:black;
+}
+
+.modal-container{
+    flex-direction: column;
+    color: black;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    background-color:beige;
+}
+
+.modal-container-info{
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+
+
+.msg {
+    height: 4em;
+    width: 26em;
+}
+
+.sign-up{
+    height: 4em;
+    width: 10em;
+}
+
   
