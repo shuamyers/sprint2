@@ -148,6 +148,7 @@ function drawText(line) {
         gCtx.shadowOffsetX = 0;
         gCtx.shadowOffsetY = 0;
     }
+    gCtx.strokeText(line.txt, x, y);
     gCtx.fillText(line.txt, x, y);
 }
 
