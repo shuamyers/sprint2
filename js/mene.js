@@ -269,6 +269,8 @@ function fontSizeChanger(num ,idx) {
 function openPage() {
     var elMainPage = document.querySelector('.main-page');
     var elMemePage = document.querySelector('.meme-page');
+    var elSearch = document.querySelector('.nav-search');
+    elSearch.classList.toggle('hide');
     elMainPage.classList.toggle('hide');
     elMemePage.classList.toggle('hide');
 }

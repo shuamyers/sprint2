@@ -117,6 +117,7 @@
     position: absolute;
     z-index: 1;
     color: transparent;
+    display: block;
 }
 
 .div-0{
@@ -135,4 +136,12 @@
 
 .keywords-bar h2{
     text-align: center;
+  }
+
+  .add-line{
+      display: none;
+  }
+
+  .search-bar{
+      display: none;
   }
