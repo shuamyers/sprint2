@@ -42,7 +42,7 @@ function init() {
 
 function renderKeyWords(keywords) {
   var strHtmls = `
-   <li class="side-search clean-list"><input type="search" onkeyup=" runSearch(this)" placeholder=" Search"></li>
+    <input class="side-search clean-list" type="search" onkeyup=" runSearch(this)" placeholder=" Search">
     <h2>Keywords:</h2>
     <ul class="keywords-bar flex flex-wrap clean-list">
     `;
