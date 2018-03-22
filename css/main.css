@@ -9,7 +9,7 @@
 
 body{
     margin: 0;
-    background: #d3edf2;
+    background: #fafafa;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
@@ -212,9 +212,57 @@ ul .fonts-li select{
     margin-top: 15px 
     
 }
+.social a {
+    text-decoration: none;
+    margin: 0 5px 0 0;
+    height: 40px;
+    width: 40px;
+    padding: 5px;
+    background:#2eb398;
+    color: #fff;
+}
+.social{
+   
+}
 
+/* contact */
+.contact{
+    padding: 40px 10px;
+    border: 1px solid rgb(131, 131, 131);
+}
+.form-group{
+    flex-direction: column; 
+}
+.input{
+    width: 580px;
+    height: 38px;
+    margin-bottom: 20px; 
+}
+#input-message{
+    width: 580px;
+    height: 150px;
+}
+form button{
+    width: 90px;
+    height: 37px;
+    background-color: #2eb398;
+}
+ 
+.contact h2{
+    width: 168px;
+    height: 22px;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 4.56px;
 
-
+}
+.contact h3{
+    width: 421px;
+    height: 17px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.56px;
+}
 /*----Helpers----*/
 
 .clean-list {
@@ -258,46 +306,6 @@ ul .fonts-li select{
 .flex-full {
     flex: 1;
 }
-
-.dropdown {
-    position: absolute;
-    top: 100%;
-    z-index: 1;
-    background: #292929;
-    width:100%;
-    left: 0;
-  
-    max-height: 0;
-    overflow: hidden;
-  
-    transition: max-height .6s;
-  }
-  
-  li:hover .dropdown {
-    max-height: 100vh;
-  }
-  
-  .main-menu .dropdown a {
-    border: none;
-    display: inline;
-  }
-  
-  
-  .icon::before {
-    content: "";
-    font-family: 'fontawesome';
-    margin-right: 5px;
-  }
-  
-  .icon-settings::before {
-    content: "";
-  }
-  .icon-profile::before {
-    content: "";
-  }
-  .icon-help::before {
-    content: "";
-  }
 
 /*----modal----*/
 
