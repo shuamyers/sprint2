@@ -48,7 +48,7 @@ function renderKeyWords(keywords) {
     `;
 
     for (var key in keywords) {
-    var fontSize = keywords[key] * 6;
+    var fontSize = keywords[key] * 15;
     var strHtml = `
         <li onclick="runSearch(this)" style="font-size:${fontSize}px;">${key}</li>
         `;
@@ -76,18 +76,18 @@ function renderImgs(imgs) {
 function getImgs() {
     var imgs = [];
     
-    imgs.push(getImg(`img/001.jpg` , ["funny", "happy"]));
-    imgs.push(getImg("img/002.jpg" , ["funny", "happy"]));
-    imgs.push(getImg("img/003.jpg" , ["funny"]));
-  imgs.push(getImg("img/008.jpg" , ["funny", "cool"]));
-  imgs.push(getImg("img/005.jpg" , ["Trump", "important"]));
-  imgs.push(getImg("img/004.jpg" , ["Trump", "important"]));
-  imgs.push(getImg("img/007.jpg" , ["Trump", "Got"]));
-  imgs.push(getImg("img/008.jpg" , ["Trump", "Trump"]));
-  imgs.push(getImg("img/009.jpg" , ["happy", "Trump"]));
-  imgs.push(getImg("img/0010.jpg" , ["Trump", "important"]));
-  imgs.push(getImg("img/003.jpg" , ["Sprint", "Trump"]));
-  imgs.push(getImg("img/003.jpg" , ["important", "Trump"]));
+    imgs.push(getImg(`img/001.jpg` , ["happy"]));
+    imgs.push(getImg("img/002.jpg" , ["rapper", "happy"]));
+    imgs.push(getImg("img/003.jpg" , ["funny", "Trump"]));
+  imgs.push(getImg("img/008.jpg" , ["traffic", "bad day"]));
+  imgs.push(getImg("img/005.jpg" , ["baby", "dog"]));
+  imgs.push(getImg("img/004.jpg" , ["dog", "puppy"]));
+  imgs.push(getImg("img/007.jpg" , ["rich", "money"]));
+  imgs.push(getImg("img/008.jpg" , ["traffic", "bad day"]));
+  imgs.push(getImg("img/009.jpg" , ["happy", "food"]));
+  imgs.push(getImg("img/010.jpg" , ["fart", "funny"]));
+  imgs.push(getImg("img/003.jpg" , ["funny", "Trump"]));
+  imgs.push(getImg("img/003.jpg" , ["funny", "Trump"]));
   
   return imgs;
 }

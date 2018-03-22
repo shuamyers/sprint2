@@ -359,6 +359,7 @@ form button{
     /*the opacity change will take 0.3sec*/
     transition: opacity 0.3s;
     padding: 2em;
+    z-index: 207;
 }
 
 /* this class is added when we open the modal */
@@ -371,7 +372,8 @@ form button{
     align-self: flex-end;
     border: 0;
     background: transparent;
-    font-size: 2em;
+    font-size: 4em;
+    margin-right: 10px;
     color:black;
 }
 
