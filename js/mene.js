@@ -75,10 +75,10 @@ function renderImgs(imgs) {
 
 function getImgs() {
     var imgs = [];
-    
-    imgs.push(getImg(`img/001.jpg` , ["happy"]));
-    imgs.push(getImg("img/002.jpg" , ["rapper", "happy"]));
-    imgs.push(getImg("img/003.jpg" , ["funny", "Trump"]));
+
+  imgs.push(getImg("img/001.jpg" , ["happy"]));
+  imgs.push(getImg("img/002.jpg" , ["rapper", "happy"]));
+  imgs.push(getImg("img/003.jpg" , ["funny", "Trump"]));
   imgs.push(getImg("img/008.jpg" , ["traffic", "bad day"]));
   imgs.push(getImg("img/005.jpg" , ["baby", "dog"]));
   imgs.push(getImg("img/004.jpg" , ["dog", "puppy"]));
@@ -202,8 +202,8 @@ function renderControls() {
                 <li><input class="controls-btn" type="color" onchange="changeColor(this,${idx})"></input></li>
                 <li class="fonts-li">
                 <select name="fonts" onchange="changeFont(this,${idx})">
-                <option class="arial" value="Arial">Arial</option>
                 <option class="impact" value="Impact">Impact</option>
+                <option class="arial" value="Arial">Arial</option>
                 <option class="lucida" value="Lucida Console">Lucida</option>
                 <option class="comic" value="Comic Sans MS">Comic</option>
                 </select>
