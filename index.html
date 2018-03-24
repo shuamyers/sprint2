@@ -33,14 +33,14 @@
                     <button class="hamburger clear-btn" onclick="toggleMenu()"><i class="fa fa-bars"></i></button>
                     <ul class="nav-bar flex clean-list space-between" id="navBar">
                         <li class="nav-search"><input type="search" onkeyup=" runSearch(this)" placeholder=" Search"></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Meme's</a></li>
+                        <li><a href="#team">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#contact">Meme's</a></li>
                     </ul>
                 </nav>
                 </div>
       </header>
-      <section class="main-page container">
+      <section class="main-page container" id="meme">
             <main class="container">
                     <h1 class="gallery-title">Choose your meme!</h1>
                     <button class="add-img" onclick="openModal()"><i class="fa fa-plus"></i></button>
@@ -53,7 +53,7 @@
                  <div class="keywords-wrapper flex flex-wrap">
                 </div>
             </div>
-            <section class="the-team flex justify-center " >
+            <section class="the-team flex justify-center " id="team" >
                 <div class="container"> 
                     <img src="" alt="">
                     <div class="team-info">
@@ -72,9 +72,9 @@
                     </div>
                 </div>
                  </section>  
-                 <section class="contact flex">  
+                 <section class="contact flex" id="contact">  
                      <div class="container"> 
-                     <h2>Get In Touch</h2>
+                      <h2>Get In Touch</h2>
                      <h3>In order to get in touch use the contact form below:</h3>
                         <form onsubmit="sendEmail(ev)">
                                 <div class="form-group flex">
