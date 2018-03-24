@@ -132,7 +132,7 @@ function handleImg(id) {
 }
 
 function drawText(line) {
-    var x = gCtx.canvas.width / 2;
+    var x = alignTextCords(line);
     var y = line.y;
     gCtx.font = `${line.size}px ${line.font}`;
     gCtx.textAlign = line.align;
@@ -150,6 +150,11 @@ function drawText(line) {
     }
     gCtx.strokeText(line.txt, x, y);
     gCtx.fillText(line.txt, x, y);
+}
+function alignTextCords(line){
+  if (line.align === 'center') return gCtx.canvas.width / 2;
+  else if (line.align === 'left') return 0;
+  else if (line.align === 'right') return  gCtx.canvas.width;
 }
 
 function drawImage(img) {
@@ -318,7 +323,7 @@ function downloadData(elLink) {
 function openModal(){
     document.querySelector('.modal').classList.add('modal-open');
     var elAddimg = document.querySelector('.add-img');
-  elAddimg.classList.toggle('hide');
+    elAddimg.classList.toggle('hide');
 }
 
 function closeModal(){
