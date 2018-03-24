@@ -131,15 +131,16 @@ main{
 
 .input-div{
     height:40px;
-    width: calc(100vw / 2);
+    width: calc(100vw / 1.5);
     position: absolute;
     z-index: 1;
     color: transparent;
     display: block;
+    text-align: center;
 }
 
 .div-0{
-    top: 20px;
+    top: 115px;
     left: 65px;
 }
 

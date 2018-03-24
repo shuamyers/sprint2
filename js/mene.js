@@ -67,7 +67,7 @@ function renderImgs(imgs) {
     var strHtmls = imgs.map(function(img, idx) {
         var strHtml = `
         <img class="img-${img.id}" src="${img.url}"
-        alt="" onclick="handleImg(${img.id}); openPage();">
+        alt="" onclick="renderCanvas(${img.id}); openPage();">
         `;
         return strHtml;
     });
@@ -106,11 +106,16 @@ function getImg( url , keywords) {
 function getText(elInput, idx) {
     // check if the elInput is div with content editable or just input type text.
     var txt = elInput.value ? elInput.value : elInput.innerText;
+    if(elInput.value){
+        document.querySelector(`.div-${idx}`).innerText = txt;
+    }else{
+        document.querySelector(`.input-${idx}`).value = txt;
+    }
     gMeme.txts[idx].txt = txt;
-    handleImg(gMeme.selectedImgId);
+    renderCanvas(gMeme.selectedImgId);
 }
 
-function handleImg(id) {
+function renderCanvas(id) {
   gMeme.selectedImgId = id;
   var img = gImgs.find(function(img) {
       return img.id === id;
@@ -203,11 +208,11 @@ function renderControls() {
     var strHtmls = gMeme.txts.map(function(line, idx) {
         var strHtml = `
         <div class="line-btn line-${idx}">
-        <input type="text" class="line-input" onkeyup="getText(this,${idx})"
+        <input type="text" class="line-input input-${idx}" onkeyup="getText(this,${idx})"
                 placeholder="Enter your text here..." value="${gMeme.txts[idx].txt}">
             <ul class="flex clean-list">
-                <li><button class="controls-btn" onclick="deleteLine(${idx})"><i class="fa fa-trash-alt"></i></button></li>
-                <li><input class="controls-btn" type="color" onchange="changeColor(this,${idx})"></input></li>
+                <li><button class="controls-btn" title="Delete line" onclick="deleteLine(${idx})"><i class="fa fa-trash-alt"></i></button></li>
+                <li><input class="controls-btn"  title="Change color" type="color" onchange="changeColor(this,${idx})"value="#ffffff"></input></li>
                 <li class="fonts-li">
                 <select name="fonts" onchange="changeFont(this,${idx})">
                 <option class="impact" value="Impact">Impact</option>
@@ -216,14 +221,14 @@ function renderControls() {
                 <option class="comic" value="Comic Sans MS">Comic</option>
                 </select>
                 </li>
-                <li><button class="controls-btn" onclick = "addTextShadow(${idx})" ><i class="fa fa-pied-piper-pp"></i></button></li>
-                <li><button class="controls-btn" onclick = "alignText('right',${idx})"><i class="fa fa-align-left"></i></button></li>
-                <li><button class="controls-btn" onclick = "alignText('center',${idx})"><i class="fa fa-align-justify"></i></button></li>
-                <li><button class="controls-btn" onclick = "alignText('left',${idx})"><i class="fa fa-align-right"></i></button></li>
-                <li><button class="controls-btn" onclick="fontSizeChanger(4,${idx})"><i class="fa fa-plus"></i></button></li>
-                <li><button class="controls-btn" onclick="fontSizeChanger(-4,${idx})"><i class="fa fa-minus"></i></button></li>
-                <li><button class="controls-btn" onclick="moveTxt(-4,${idx})"><i class="fas fa-arrow-up"></i></button></li>
-                <li><button class="controls-btn" onclick="moveTxt(4,${idx})"><i class="fas fa-arrow-down"></i></button></li>
+                <li><button class="controls-btn" title="Text shadow" onclick = "addTextShadow(${idx})" ><i class="fa fa-pied-piper-pp"></i></button></li>
+                <li><button class="controls-btn" title="Align left" onclick = "alignText('right',${idx})"><i class="fa fa-align-left"></i></button></li>
+                <li><button class="controls-btn" title="Align center" onclick = "alignText('center',${idx})"><i class="fa fa-align-justify"></i></button></li>
+                <li><button class="controls-btn" title="Align right" onclick = "alignText('left',${idx})"><i class="fa fa-align-right"></i></button></li>
+                <li><button class="controls-btn" title="Increase font size " onclick="fontSizeChanger(4,${idx})"><i class="fa fa-plus"></i></button></li>
+                <li><button class="controls-btn" title="decrease font size" onclick="fontSizeChanger(-4,${idx})"><i class="fa fa-minus"></i></button></li>
+                <li><button class="controls-btn" title="Move up" onclick="moveTxt(-4,${idx})"><i class="fas fa-arrow-up"></i></button></li>
+                <li><button class="controls-btn" title="Move down" onclick="moveTxt(4,${idx})"><i class="fas fa-arrow-down"></i></button></li>
             </ul>
         
         </div>
@@ -248,17 +253,17 @@ function renderControls() {
 
 function changeFont(elFont,idx){
     gMeme.txts[idx].font = elFont.value;
-    handleImg(gMeme.selectedImgId);
+    renderCanvas(gMeme.selectedImgId);
 }
 function addTextShadow(idx){
     var shadow =  gMeme.txts[idx].textShadow;
     gMeme.txts[idx].textShadow = (shadow)? false : true;
-    handleImg(gMeme.selectedImgId);
+    renderCanvas(gMeme.selectedImgId);
 }
 
 function moveTxt(move, idx) {
     gMeme.txts[idx].y += move;
-handleImg(gMeme.selectedImgId);
+renderCanvas(gMeme.selectedImgId);
 }
 
 function updateBottomTxt() {
@@ -267,12 +272,12 @@ function updateBottomTxt() {
 
 function alignText(pram, idx) {
     gMeme.txts[idx].align = pram;
-    handleImg(gMeme.selectedImgId);
+    renderCanvas(gMeme.selectedImgId);
 }
 
 function fontSizeChanger(num ,idx) {
     gMeme.txts[idx].size += num;
-    handleImg(gMeme.selectedImgId);
+    renderCanvas(gMeme.selectedImgId);
 }
 
 function openPage() {
@@ -288,7 +293,7 @@ function openPage() {
 function changeColor(elColor, idx) {
   var color = elColor.value;
   gMeme.txts[idx].color = color;
-  handleImg(gMeme.selectedImgId);
+  renderCanvas(gMeme.selectedImgId);
 }
 
 function addTxtLine() {
@@ -312,7 +317,7 @@ function deleteLine (idx) {
     if(gMeme.txts.length < 3) return;
     gMeme.txts.splice(idx, 1);
     renderControls();
-    handleImg(gMeme.selectedImgId);
+    renderCanvas(gMeme.selectedImgId);
 }
 
 
@@ -340,7 +345,7 @@ function addImg () {
     gImgs.push(getImg(`${url.value}`, ["funny", "happy"]));
     renderImgs(gImgs);
     closeModal();
-    handleImg(gId-1);
+    renderCanvas(gId-1);
     openPage();
     var elAddimg = document.querySelector('.add-img');
     elAddimg.classList.toggle('hide');
