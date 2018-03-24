@@ -73,6 +73,7 @@ nav ul input{
 
 .keywords-wrapper{
     flex-direction: column;
+    max-width: 200px;
 }
 
 .keywords-wrapper h2{
@@ -148,7 +149,7 @@ nav ul input{
 }
 
 .edit-section{
-    margin-top:100px;
+    margin-top:40px;
 }
 
 .gallery-title{
@@ -161,7 +162,7 @@ text-align: center;
 
 #imgCanvas{
     max-width: 700px; 
-    max-height: 500px;
+    /* max-height: 500px; */
     /* border: 10px solid #0e0a49;
     margin-right:20px; */
     border-radius: 5px;
@@ -173,7 +174,8 @@ aside {
     flex-direction: column;
     padding: 10px;
     border-radius: 5px;
-    margin-left: 20px; 
+    /* margin-left: 20px;  */
+    width: 90%;
     box-shadow: 0 0 4px 0px #f1d4d4;
 }
 
@@ -413,8 +415,3 @@ footer {
     text-align: center;
 }
 
-.logo-man{
-    height: 40%;
-    width: 60%;
-}
-  
