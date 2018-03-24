@@ -222,9 +222,9 @@ function renderControls() {
                 </select>
                 </li>
                 <li><button class="controls-btn" title="Text shadow" onclick = "addTextShadow(${idx})" ><i class="fa fa-pied-piper-pp"></i></button></li>
-                <li><button class="controls-btn" title="Align left" onclick = "alignText('right',${idx})"><i class="fa fa-align-left"></i></button></li>
+                <li><button class="controls-btn" title="Align left" onclick = "alignText('left',${idx})"><i class="fa fa-align-left"></i></button></li>
                 <li><button class="controls-btn" title="Align center" onclick = "alignText('center',${idx})"><i class="fa fa-align-justify"></i></button></li>
-                <li><button class="controls-btn" title="Align right" onclick = "alignText('left',${idx})"><i class="fa fa-align-right"></i></button></li>
+                <li><button class="controls-btn" title="Align right" onclick = "alignText('right',${idx})"><i class="fa fa-align-right"></i></button></li>
                 <li><button class="controls-btn" title="Increase font size " onclick="fontSizeChanger(4,${idx})"><i class="fa fa-plus"></i></button></li>
                 <li><button class="controls-btn" title="decrease font size" onclick="fontSizeChanger(-4,${idx})"><i class="fa fa-minus"></i></button></li>
                 <li><button class="controls-btn" title="Move up" onclick="moveTxt(-4,${idx})"><i class="fas fa-arrow-up"></i></button></li>
