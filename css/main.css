@@ -79,6 +79,13 @@ nav ul input {
   padding: 0 10px 10px 10px;
   cursor: pointer;
 }
+.keywords-all-btn{
+    text-decoration: underline;
+    background: transparent;
+    border: none;
+    font-size: 21px;
+    font-weight: bold;
+}
 
 .background {
   border: 1px solid #c7c7c796;

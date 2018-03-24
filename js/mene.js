@@ -43,7 +43,7 @@ function init() {
 function renderKeyWords(keywords) {
   var strHtmls = `
     <input class="side-search clean-list" type="search" onkeyup=" runSearch(this)" placeholder=" Search">
-    <h2>Keywords:</h2>
+    <h2>Keywords:<button class="keywords-all-btn" onclick="getAllKeywords()">All</button></h2>
     <ul class="keywords-bar flex flex-wrap clean-list">
     `;
 
@@ -58,6 +58,9 @@ function renderKeyWords(keywords) {
   var elKeyWordsBar = document.querySelector(".keywords-wrapper");
   console.log(strHtmls);
   elKeyWordsBar.innerHTML = strHtmls;
+}
+function getAllKeywords(){
+    renderImgs(gImgs);
 }
 
 function renderImgs(imgs) {
