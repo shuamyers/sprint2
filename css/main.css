@@ -65,8 +65,9 @@ nav ul input {
 
 /*----keywords bar----*/
 
-.keywords-wrapper {
-  flex-direction: column;
+.keywords-wrapper{
+    flex-direction: column;
+    max-width: 200px;
 }
 
 .keywords-wrapper h2 {
@@ -139,8 +140,8 @@ nav ul input {
   margin: 0 auto;
 }
 
-.edit-section {
-  margin-top: 100px;
+.edit-section{
+    margin-top:40px;
 }
 
 .gallery-title {
@@ -149,21 +150,22 @@ nav ul input {
 
 /*----Canvas----*/
 
-#imgCanvas {
-  max-width: 700px;
-  max-height: 500px;
-  /* border: 10px solid #0e0a49;
+#imgCanvas{
+    max-width: 700px; 
+    /* max-height: 500px; */
+    /* border: 10px solid #0e0a49;
     margin-right:20px; */
   border-radius: 5px;
   box-shadow: 0 0 6px 0px #f1d4d4;
 }
 
 aside {
-  flex-direction: column;
-  padding: 10px;
-  border-radius: 5px;
-  margin-left: 20px;
-  box-shadow: 0 0 4px 0px #f1d4d4;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 5px;
+    /* margin-left: 20px;  */
+    width: 90%;
+    box-shadow: 0 0 4px 0px #f1d4d4;
 }
 
 .add-line {
@@ -392,7 +394,3 @@ footer {
   text-align: center;
 }
 
-.logo-man {
-  height: 40%;
-  width: 60%;
-}
