@@ -18,7 +18,10 @@ header {
   color: #fff;
   border-bottom: 2px solid #121116;
 }
-
+header input{
+    border: none;
+    padding: 5px;
+}
 .header-warper {
   line-height: 100px;
 }
@@ -250,7 +253,9 @@ ul .fonts-li select {
   width: 100%;
   background: gray;
 }
-
+.contact input{
+    padding: 5px;
+}
 .form-group {
   flex-direction: column;
   max-width: 100%;
